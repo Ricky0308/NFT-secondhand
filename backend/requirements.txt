@@ -1,0 +1,6 @@
+django==3.2
+django-environ
+Pillow
+djangorestframework
+django-cors-headers
+
