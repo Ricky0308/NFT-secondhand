@@ -1,0 +1,4 @@
+アドミン用のユーザーです
+name : "admin"
+password : "password"
+email : "admin@mail.com"

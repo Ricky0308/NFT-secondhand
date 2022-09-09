@@ -12,4 +12,4 @@ CMD /bin/bash
 # 2 イメージからコンテナを作成 
 # docker image build -t backend .
 # docker container run --rm --name backend -v $PWD:/backend -it -p 8000:8000 backend
-# python manage.py runserver 0.0.0.0:3000
+# python manage.py runserver 0.0.0.0:8000
