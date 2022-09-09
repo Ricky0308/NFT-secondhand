@@ -8,22 +8,34 @@ import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Hyousi from "../pic/hyousi.png";
+import Modal from "@mui/material/Modal";
 
 export default function Assignment() {
   const [value, setValue] = React.useState(30);
+  const title = "タイトル";
+  const [address, setAddress] = React.useState("");
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  function valuetext(value) {
-    return `${value}°C`;
-  }
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div style={{ textAlign: "left" }}>
-      <Typography variant="h3" fontWeight="bold">
+      <Typography
+        variant="h3"
+        fontWeight="bold"
+        marginTop={5}
+        marginBottom={5}
+        marginLeft={10}
+      >
         譲渡する
       </Typography>
-      <Box sx={{ backgroundColor: "#edf2f7", padding: 5 }}>
+      <Box sx={{ backgroundColor: "#edf2f7", padding: 5, height: "100vh" }}>
         <Container
           maxWidth="lg"
           sx={{ bgcolor: "#ffffff", borderRadius: "16px" }}
@@ -41,22 +53,39 @@ export default function Assignment() {
               alignItems="center"
               divider={<Divider orientation="vertical" flexItem />}
             >
-              <Box sx={{ width: 300, textAlign: "center"}}>
-                <img src={Hyousi} alt=" " style={{ width: 200 }} />
+              <Box sx={{ width: 300, textAlign: "center" }}>
+                <img
+                  src={Hyousi}
+                  alt=" "
+                  style={{ width: 200, marginTop: 50 }}
+                />
+                <Typography variant="h5" marginTop={3} marginBottom={5}>
+                  {title}
+                </Typography>
               </Box>
-              <Box sx={{ width: 700 }}>
-                <Typography variant="h5">相手のアドレス</Typography>
+              <Box sx={{ width: 700, padding: 5 }}>
+                <Typography variant="h5" marginBottom={5} fontWeight="bold">
+                  相手のアドレス
+                </Typography>
                 <TextField
-                  id="outlined-basic"
+                  id="address"
                   fullWidth
                   label="Adress"
                   variant="outlined"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                 />
-                <Typography variant="h5">金額</Typography>
+                <Typography
+                  variant="h5"
+                  marginTop={5}
+                  marginBottom={5}
+                  fontWeight="bold"
+                >
+                  金額
+                </Typography>
                 <Slider
                   aria-label="Small steps"
                   defaultValue={500}
-                  getAriaValueText={valuetext}
                   step={50}
                   marks
                   min={200}
@@ -65,14 +94,55 @@ export default function Assignment() {
                   value={value}
                   onChange={handleChange}
                 />
-                <Stack direction="row">
+                <Stack direction="row" marginTop={5}>
                   <div style={{ flexGrow: 1 }}></div>
-                  <Button variant="contained">譲渡</Button>
+                  <Button variant="contained" onClick={handleOpen}>
+                    譲渡
+                  </Button>
                 </Stack>
               </Box>
             </Stack>
           </Container>
         </Container>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box
+            sx={{
+              textAlign: "center",
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: 800,
+              bgcolor: "background.paper",
+              // border: "2px solid #000",
+              borderRadius: "16px",
+              boxShadow: 24,
+              p: 7,
+            }}
+          >
+            <Typography variant="h4" fontWeight={"bold"} marginBottom={7}>
+              {title}の譲渡
+            </Typography>
+            <Typography variant="h6" component="h2" marginBottom={12}>
+              {address}宛に{value}円で譲渡しますか？
+            </Typography>
+            <Stack
+              direction="row"
+              justifyContent="space-around"
+              alignItems="center"
+            >
+              <Button variant="outlined" onClick={handleClose}>
+                キャンセル
+              </Button>
+              <Button variant="contained">譲渡</Button>
+            </Stack>
+          </Box>
+        </Modal>
       </Box>
     </div>
   );
