@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+/*import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -19,6 +19,22 @@ function App() {
         </a>
       </header>
     </div>
+  );
+}
+
+export default App; */
+
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Test } from "./components/test";
+
+const testApiUrl = "http://localhost:8000/hello/";
+
+function App() {
+  return (
+    <>
+      <Test/>
+    </>
   );
 }
 

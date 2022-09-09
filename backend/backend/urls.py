@@ -15,9 +15,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 from manga import views
+from django.conf.urls import url, include
+
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+
+@api_view(['GET', 'POST'])
+def hello_world(request):
+    if request.method == 'POST':
+        return Response({"message": "Got some data!", "data": request.data})
+    return Response({"message": "Hello, world!"})
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('get/', views.hello_world, name='hello_world'),
+    url(r'^hello/$', hello_world),
 ]
+

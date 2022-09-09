@@ -27,7 +27,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CORES_ALLOWED_ORIGINS = ["https://localhost:3000"] #cores
+CORES_ALLOWED_ORIGINS = [
+    "http://localhost:3000/",
+    "http://localhost:3000",
+] #cores
+
 
 # Application definition
 
@@ -43,23 +47,30 @@ INSTALLED_APPS = [
     'rest_framework',  #rest
 ]
 
+
+
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
-    ]
+   'DEFAULT_AUTHENTICATION_CLASSES': (
+       'rest_framework.authentication.TokenAuthentication',
+   ),
+   'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',  #おそらくまずい
+        #'rest_framework.permissions.IsAdminUser',
+        #'rest_framework.permissions.IsAuthenticated',
+   ),
 }
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    "corsheaders.middleware.CorsMiddleware",  #cores
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",  #cores
+    'django.middleware.common.CommonMiddleware', #cores
 ]
 
 ROOT_URLCONF = 'backend.urls'
