@@ -11,5 +11,5 @@ CMD /bin/bash
 # 1 イメージの作成 
 # 2 イメージからコンテナを作成 
 # docker image build -t backend .
-# docker container run --rm --name backend -v $PWD:/backend -it -p 8000:8000 backend
+# docker container run --rm --name backend -v C:/Users/Chidu/NFT-secondhand/backend -it -p 8000:8000 backend
 # python manage.py runserver 0.0.0.0:8000

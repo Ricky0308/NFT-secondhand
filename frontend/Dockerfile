@@ -15,5 +15,5 @@ CMD /bin/sh
 # 3 コンテナ内でreact起動 (ipを0.0.0.0にすることで、ホストマシンのネットワークと繋げる)
 
 # docker build -t frontend .
-# docker container run --rm --name frontend -v $PWD:/frontend -it -p 3000:3000 frontend
+# docker container run --rm --name frontend -v C:/Users/Chidu/NFT-secondhand/frontend:/frontend -it -p 3000:3000 frontend
 # npm start 0.0.0.0:3000
