@@ -27,11 +27,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-CORES_ALLOWED_ORIGINS = [
-    "http://localhost:3000/",
-    "http://localhost:3000",
-] #cores
+# CORES_ALLOWED_ORIGINS = [
+#     "http://localhost:3000/",
+#     "http://localhost:3000",
+# ] #cores
 
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)  #cores
 
 # Application definition
 
@@ -49,16 +52,16 @@ INSTALLED_APPS = [
 
 
 
-REST_FRAMEWORK = {
-   'DEFAULT_AUTHENTICATION_CLASSES': (
-       'rest_framework.authentication.TokenAuthentication',
-   ),
-   'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.AllowAny',  #おそらくまずい
-        #'rest_framework.permissions.IsAdminUser',
-        #'rest_framework.permissions.IsAuthenticated',
-   ),
-}
+# REST_FRAMEWORK = {
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'rest_framework.authentication.TokenAuthentication',
+#    ),
+#    'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.AllowAny',  #おそらくまずい
+#         #'rest_framework.permissions.IsAdminUser',
+#         #'rest_framework.permissions.IsAuthenticated',
+#    ),
+# } #rest
 
 
 MIDDLEWARE = [

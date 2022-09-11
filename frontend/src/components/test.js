@@ -8,7 +8,7 @@ export function Test() {
   useEffect(()=>{
     axios.get(testApiUrl)
       .then((res)=>{
-        setMsg(res.data);
+        setMsg(res.data.message);
       })
       .catch((e)=>{
         console.log("バックエンドとは繋がっていません");
