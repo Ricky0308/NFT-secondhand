@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,17 +28,43 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# CORES_ALLOWED_ORIGINS = [
+#     "http://localhost:3000/",
+#     "http://localhost:3000",
+# ] #cores
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)  #cores
 
 # Application definition
 
 INSTALLED_APPS = [
+    'contents.apps.ContentsConfig',  #app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "corsheaders",  #cores
+    'rest_framework',  #rest
+    #'contents',  #app
 ]
+
+
+
+# REST_FRAMEWORK = {
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'rest_framework.authentication.TokenAuthentication',
+#    ),
+#    'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.AllowAny',  #おそらくまずい
+#         #'rest_framework.permissions.IsAdminUser',
+#         #'rest_framework.permissions.IsAuthenticated',
+#    ),
+# } #rest
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -47,6 +74,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",  #cores
+    'django.middleware.common.CommonMiddleware', #cores
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -123,3 +152,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# File関係
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const testApiUrl = "http://localhost:8000/hogehoge";
+const testApiUrl = "http://localhost:8000/3/cover";
 
 export function Test() {
   const [msg, setMsg] = useState();
   useEffect(()=>{
     axios.get(testApiUrl)
       .then((res)=>{
-        setMsg(res.data);
+        setMsg(res.data.message);
       })
       .catch((e)=>{
         console.log("バックエンドとは繋がっていません");
@@ -20,4 +20,3 @@ export function Test() {
     </div>
   );
 }
-
