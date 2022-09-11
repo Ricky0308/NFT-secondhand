@@ -12,5 +12,5 @@ def load_cover(request, book_id):
     if request.method == 'POST':
         return Response({"message": "Got some data!", "data": request.data})
     contents = Contents.objects.all()
-    
+    #テスト: DBのデータすべてを取得し表示している
     return Response({"message": f"This is {book_id}! contents={contents}"})
