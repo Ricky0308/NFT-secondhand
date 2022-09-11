@@ -1,0 +1,13 @@
+version: '3'
+services:
+  node:
+    build:
+      context: .
+    tty: true
+    environment:
+      - NODE_ENV=development
+    volumes:
+    - ./:/usr/src/app
+    command: sh -c "npm cache verify &&npm install react-bootstrap bootstrap && npm install --save ethers && cd reactapp && npm start"
+    ports:
+    - "3000:3000"
