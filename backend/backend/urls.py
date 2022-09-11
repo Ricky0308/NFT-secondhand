@@ -15,21 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
-from manga import views
+from contents import views
 from django.conf.urls import url, include
 
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-@api_view(['GET', 'POST'])
-def hello_world(request):
-    if request.method == 'POST':
-        return Response({"message": "Got some data!", "data": request.data})
-    return Response({"message": "Hello, world!"})
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^hello/$', hello_world),
+    path('<int:book_id>/cover', views.load_cover),
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

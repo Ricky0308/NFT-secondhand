@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const testApiUrl = "http://localhost:8000/hello/";
+const testApiUrl = "http://localhost:8000/3/cover";
 
 export function Test() {
   const [msg, setMsg] = useState();

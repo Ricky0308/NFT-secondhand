@@ -24,11 +24,8 @@ function App() {
 
 export default App; */
 
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { Test } from "./components/test";
 
-const testApiUrl = "http://localhost:8000/hello/";
 
 function App() {
   return (
