@@ -28,7 +28,8 @@ from rest_framework.decorators import api_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('<int:book_id>/cover', views.load_cover),
+    # path('<int:book_id>/cover', views.load_cover),
+    path('cover/', views.LoadData.as_view() ),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
