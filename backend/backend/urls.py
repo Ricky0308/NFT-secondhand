@@ -34,6 +34,7 @@ urlpatterns = [
     # path('content/', views.LoadContent.as_view() ),
     # path('cover/', views.LoadCover.as_view() ),
     # path('coverlist/', views.LoadCoverList.as_view() ),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
