@@ -2,3 +2,8 @@
 name : "admin"
 password : "password"
 email : "admin@mail.com"
+
+API:
+http://localhost:8000/cover/?name=hoge -> return URL of cover image(.jpeg) 
+http://localhost:8000/content/?name=hoge -> return URL of content(.pdf)
+http://localhost:8000/coverlist/?name=hoge,huga -> return list of URLs
