@@ -1,4 +1,6 @@
 import React from "react";
+
+/* Material UI */
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -7,8 +9,31 @@ import TextField from "@mui/material/TextField";
 import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-import Hyousi from "../pic/hyousi.png";
 import Modal from "@mui/material/Modal";
+
+/* PDF表示 */
+import {Viewer, Worker } from '@react-pdf-viewer/core';
+import {SpecialZoomLevel} from '@react-pdf-viewer/core';
+import {defaultLayoutPlugin} from '@react-pdf-viewer/default-layout';
+
+import '@react-pdf-viewer/core/lib/styles/index.css';
+import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+
+// import {Document, Page} from "react-pdf";
+// import {pdfjs} from "react-pdf";
+
+/* マンガ表示 */
+// import Hyousi from "../pic/hyousi.png";
+// import manga from "../pic/sample_manga.pdf"
+
+/* react-pdfを利用する場合*/
+// const options ={
+//   cMapUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/cmaps/`,
+//   cMapPacked: true,
+//   standardFontDataUrl: `https://unpkg.com/pdfjs-dist@${pdfjs.version}/standard_fonts`,
+// };
+
+
 
 export default function Assignment() {
   const [value, setValue] = React.useState(30);
@@ -23,6 +48,13 @@ export default function Assignment() {
   const handleClose = () => {
     setOpen(false);
   };
+
+    /* マンガ表示処理 */
+    
+  const defaultLayoutPluginInstance = defaultLayoutPlugin({
+    sidebarTabs: (defaultTab) => [],
+  
+  });
 
   return (
     <div style={{ textAlign: "left" }}>
@@ -52,17 +84,34 @@ export default function Assignment() {
               justifyContent="flex-start"
               alignItems="center"
               divider={<Divider orientation="vertical" flexItem />}
-            >
+            > 
               <Box sx={{ width: 300, textAlign: "center" }}>
-                <img
+                {/* <img
                   src={Hyousi}
                   alt=" "
                   style={{ width: 200, marginTop: 50 }}
-                />
+                /> */}
+                <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.15.349/build/pdf.worker.js">
+                  <div style={{ 
+                    width: '100%',
+                    height: '450px',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    marginTop:'auto',
+                    marginBottom:'auto',
+                  }}>
+                    <Viewer
+                      fileUrl={`${process.env.PUBLIC_URL}/sample_manga.pdf`}
+                      defaultScale ={SpecialZoomLevel.PageFit}
+                      plugins={[defaultLayoutPluginInstance]}
+                    />
+                  </div>
+                </Worker>
                 <Typography variant="h5" marginTop={3} marginBottom={5}>
                   {title}
                 </Typography>
               </Box>
+              
               <Box sx={{ width: 700, padding: 5 }}>
                 <Typography variant="h5" marginBottom={5} fontWeight="bold">
                   相手のアドレス
