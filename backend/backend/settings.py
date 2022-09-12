@@ -28,18 +28,43 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# CORES_ALLOWED_ORIGINS = [
+#     "http://localhost:3000/",
+#     "http://localhost:3000",
+# ] #cores
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)  #cores
 
 # Application definition
 
 INSTALLED_APPS = [
+    'contents.apps.ContentsConfig',  #app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'contents',
+    "corsheaders",  #cores
+    'rest_framework',  #rest
+    #'contents',  #app
 ]
+
+
+
+# REST_FRAMEWORK = {
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'rest_framework.authentication.TokenAuthentication',
+#    ),
+#    'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework.permissions.AllowAny',  #おそらくまずい
+#         #'rest_framework.permissions.IsAdminUser',
+#         #'rest_framework.permissions.IsAuthenticated',
+#    ),
+# } #rest
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,6 +74,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",  #cores
+    'django.middleware.common.CommonMiddleware', #cores
 ]
 
 ROOT_URLCONF = 'backend.urls'
