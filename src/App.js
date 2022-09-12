@@ -19,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={`/test`} element={<Test />} />
-          <Route path={`/`} element={<Assignment />} />
+          <Route path={`/a`} element={<Assignment />} />
           <Route path={`/p`} element={<Purchase />} />
           <Route path={`/bookshell`} element={<Bookshell />} />
           {/* <Route path={`*`} element={<Error />} /> */}

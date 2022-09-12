@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import contract from '../contracts/abi.json';
 
-const contractAddress = "0xBF13b1b64C2F4E8a7767b15034160dbF172CAe6D";
+const contractAddress = "0x6eff556A42A68aB1C87D70CDB504429E5E563b00";
 const abi = contract.abi;
 
 export default function TradeHandler(buyPrice) {

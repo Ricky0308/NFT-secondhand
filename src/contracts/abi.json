@@ -332,6 +332,35 @@
         {
             "inputs": [
                 {
+                    "internalType": "uint256",
+                    "name": "_tokenid",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getApproved_manga",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
                     "internalType": "address",
                     "name": "owner",
                     "type": "address"
