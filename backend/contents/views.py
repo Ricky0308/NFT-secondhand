@@ -25,9 +25,25 @@ from django.views import View
 #     serializer = ContentsSerializers(contents, many=True,context={"request":request})
 #     return Response(serializer.data)
 
-class LoadData(APIView):
+class LoadCover(APIView):
 
     def get(self, request):
         contents = Contents.objects.filter(name=request.query_params['name'])
         serializer = ContentsSerializers(contents, many=True,context={"request":request})
-        return Response(serializer.data[0])
+        return Response(serializer.data[0]['cover'])
+
+class LoadContent(APIView):
+
+    def get(self, request):
+        contents = Contents.objects.filter(name=request.query_params['name'])
+        serializer = ContentsSerializers(contents, many=True,context={"request":request})
+        return Response(serializer.data[0]['content'])
+
+class LoadCoverList(APIView):
+
+    def get(self, request):
+        namelist=request.query_params['name'].split(",")
+        contents = Contents.objects.filter(name__in=namelist)
+        serializer = ContentsSerializers(contents, many=True,context={"request":request})
+        coverlist=[d["cover"] for d in serializer.data]
+        return Response(coverlist)
