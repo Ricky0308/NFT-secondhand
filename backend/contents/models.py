@@ -8,4 +8,4 @@ class Contents(models.Model):
     cover = models.ImageField(upload_to='uploads/%Y/%m/%d/', default='samples/sample_cover.jpeg')
 
     def __str__(self):
-        return self.name
+        return self.title
