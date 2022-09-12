@@ -1,37 +1,28 @@
-/*import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Typography from "@mui/material/Typography";
+import AppBar from "@mui/material/AppBar";
+import Assignment from "./components/assignment";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <AppBar position="static" style={{ backgroundColor: "#534F69" }}>
+        <Typography component="h1" variant="h44" margin={2}>
+          Secondly
+        </Typography>
+      </AppBar>
+          <BrowserRouter>
+            <Routes>
+              <Route path={`/`} element={<Assignment />} />
+              {/* <Route path={`*`} element={<Error />} /> */}
+            </Routes>
+          </BrowserRouter>
+
+     
+      
     </div>
-  );
-}
-
-export default App; */
-
-import { Test } from "./components/test";
-
-
-function App() {
-  return (
-    <>
-      <Test/>
-    </>
   );
 }
 

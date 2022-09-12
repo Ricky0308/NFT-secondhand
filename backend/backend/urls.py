@@ -29,9 +29,12 @@ from rest_framework.decorators import api_view
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('<int:book_id>/cover', views.load_cover),
-    path('cover/', views.LoadCover.as_view() ),
-    path('content/', views.LoadContent.as_view() ),
-    path('coverlist/', views.LoadCoverList.as_view() ),
+    path('content_info/', views.LoadContentInfo.as_view()),
+    
+    # path('content/', views.LoadContent.as_view() ),
+    # path('cover/', views.LoadCover.as_view() ),
+    # path('coverlist/', views.LoadCoverList.as_view() ),
+    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
