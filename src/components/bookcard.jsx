@@ -4,20 +4,19 @@ import axios from "axios";
 import { BaseAPIUrl } from "../api/urls";
 import { useEffect, useState, useContext } from "react";
 import { ContentInfoContext } from "../providers/ContentInfoProvider";
-
+import { FetchContentInfo } from "../api/functions";
 
 export const BookCard = ({bookId}) => {
-    const [ content, setContent ] = useState("")
+    const [ title, setTitle ] = useState("");
+    const [ cover, setCover ] = useState("");
     useEffect(() => {
-        const requestConfig = {
-            params : {id : bookId}
-        }
         const coverUrl = BaseAPIUrl + "content_info/";
-        axios.get(coverUrl, requestConfig)
-            .then((res) => {
-                setContent(res.data);
-                console.log(content);
+        FetchContentInfo(bookId)
+            .then((data) => {
+                setTitle(data.name);
+
             })
+        
     }, [])
 
     return(
