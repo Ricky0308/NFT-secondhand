@@ -11,6 +11,7 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "axios": "^0.27.2",
     "ethers": "^5.5.1",
     "material-icons": "^1.11.11",
     "nodemodule": "^0.3.0",
