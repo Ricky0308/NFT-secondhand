@@ -2,6 +2,7 @@ import "./App.css";
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Test from "./Test";
+import Assignment from "./pages/assignment";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -15,13 +16,11 @@ function App() {
       </AppBar>
           <BrowserRouter>
             <Routes>
-              <Route path={`/`} element={<Test />} />
+              <Route path={`/test`} element={<Test />} />
+              <Route path={`/`} element={<Assignment />} />
               {/* <Route path={`*`} element={<Error />} /> */}
             </Routes>
           </BrowserRouter>
-
-     
-      
     </div>
   );
 }
