@@ -2,6 +2,7 @@ import "./App.css";
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Test from "./Test";
+import Navbar from "./pages/navbar";
 import Assignment from "./pages/assignment";
 import Purchase from "./pages/purchase";
 import React from "react";
@@ -12,9 +13,7 @@ function App() {
   return (
     <div className="App">
       <AppBar position="static" style={{ backgroundColor: "#534F69" }}>
-        <Typography component="h1" variant="h44" margin={2}>
-          Secondly
-        </Typography>
+      <Navbar />
       </AppBar>
       <BrowserRouter>
         <Routes>
