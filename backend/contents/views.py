@@ -8,6 +8,7 @@
 # from .models import Contents
 
 from rest_framework.views import APIView
+from rest_framework import viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
@@ -24,6 +25,8 @@ from django.views import View
 #     #return Response({"message": f"This is {book_id}! contents={contents}"})
 #     serializer = ContentsSerializers(contents, many=True,context={"request":request})
 #     return Response(serializer.data)
+
+class BookViewSet()
 
 class LoadCover(APIView):
 
