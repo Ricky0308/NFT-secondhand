@@ -4,12 +4,8 @@ import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/system";
 import Subtitle from "../components/subtitle";
 import { useNavigate } from "react-router-dom";
-import Test from "../Test";
+import get_nftHandler from "../functions/get_nftHandler";
 
-import contract from "../contracts/abi.json";
-import { ethers } from "ethers";
-const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
-const abi = contract.abi;
 
 const AddressToContentsId = () => {
     return [1, 100]
@@ -17,13 +13,13 @@ const AddressToContentsId = () => {
 
 export default function Bookshell(){
     const [ bookIdArray, setBookIdArray ] = useState([]);
-    useEffect(()=>{
-        setBookIdArray(AddressToContentsId());
-        Test.get_nftHandler()
-            .then((items) => {
-                setBookIdArray(items);
-            })
-    }, [])
+    // useEffect(()=>{
+    //     setBookIdArray(AddressToContentsId());
+    //     get_nftHandler()
+    //         .then((items) => {
+    //             setBookIdArray(items);
+    //         })
+    // }, [])
 
 
     return(

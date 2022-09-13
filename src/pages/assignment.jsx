@@ -16,12 +16,15 @@ import Modal from "@mui/material/Modal";
 
 import Subtitle from "../components/subtitle";
 
+import assignmentHandler from "../functions/assignmentHandler"
+
 export default function Assignment() {
     const { bookId } = useParams()
     const [value, setValue] = React.useState(500);
     const [ title, setTitle ] = React.useState("");
     const [ cover, setCover ] = React.useState("");
     const [address, setAddress] = React.useState("");
+    const [res, setRes] = React.useState("");
 
     useEffect(() => {
         FetchContentInfo(bookId)
@@ -99,7 +102,9 @@ export default function Assignment() {
                                     marginBottom={5}
                                     fontWeight="bold"
                                 >
-                                    金額
+                                    金額 {value} 円<br/>
+                                    <br/>
+                                    {value/250000}Eth<br/>                              
                                 </Typography>
                                 <Slider
                                     aria-label="Small steps"
@@ -144,7 +149,7 @@ export default function Assignment() {
                         }}
                     >
                         <Typography variant="h4" fontWeight={"bold"} marginBottom={7}>
-                            {title}の譲渡
+                            {title}譲渡
                         </Typography>
                         <Typography variant="h6" component="h2" marginBottom={12}>
                             {address}宛に{value}円で譲渡しますか？
@@ -157,7 +162,15 @@ export default function Assignment() {
                             <Button variant="outlined" onClick={handleClose}>
                                 キャンセル
                             </Button>
-                            <Button variant="contained">譲渡</Button>
+                            {/* <Button variant="contained" onClick={assignmentHandler("0.001",address,3)}> */}
+                            <Button variant="contained" onClick={() => assignmentHandler(String(value/250000) ,address,bookId)
+                            .then((items) => {
+                                setRes(items);
+                            })   }>
+                            {/* {bookIdArray.map(() => <BookCard key={id} bookId={id}/>)} */}
+                               譲渡
+                               {res}
+                            </Button>
                         </Stack>
                     </Box>
                 </Modal>
