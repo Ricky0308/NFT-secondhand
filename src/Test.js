@@ -95,7 +95,7 @@ export default function Test() {
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         let nftTxn = await nftContract.mint(mint_mode, {
-          value: ethers.utils.parseEther("0.05"),
+          value: ethers.utils.parseEther("0.002"),
         });
 
         await nftTxn.wait();
