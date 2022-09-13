@@ -8,15 +8,24 @@ import Button from "@mui/material/Button";
 import contract from '../contracts/abi.json';
 import PurchaseModal from "../components/purchaseModal";
 import tradeHandler from "../functions/tradeHandler";
+import contractAddress from "../contracts/contractAddress";
+import { useContext } from "react";
+import { PurchaseInfoContext } from "../providers/PurchaseInfoProvider";
+import { get_approved_manga } from "../functions/get_approved_manga";
+import { useEffect } from "react";
 
-const contractAddress = "0xBF13b1b64C2F4E8a7767b15034160dbF172CAe6D";
 const abi = contract.abi;
 
 export default function Purchase() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const [address, setAddress] = React.useState("");
+    const { token, setTokenId } = useContext(PurchaseInfoContext);
 
+    useEffect(() => {
+        console.log(token);
+    }, [token])
+
+    console.log("purchase");
     return (
         <div style={{ textAlign: "left" }}>
             <Typography
@@ -47,13 +56,13 @@ export default function Purchase() {
                                     fullWidth
                                     label="Token ID"
                                     variant="outlined"
-                                    value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
+                                    value={token}
+                                    onChange={(e) => setTokenId(e.target.value)}
                                 />
                             </Box>
                             <Stack direction="row" marginTop={5}>
                                 <div style={{ flexGrow: 1 }}></div>
-                                <Button variant="contained" onClick={handleOpen}>
+                                <Button variant="contained" onClick={() => {handleOpen()}}>
                                     確認
                                 </Button>
                             </Stack>
@@ -62,7 +71,8 @@ export default function Purchase() {
                 </Container>
                 <PurchaseModal open={open} handleClose={() => {
                     setOpen(false);
-                }} />
+                }} 
+                />
             </Box>
         </div>
     );

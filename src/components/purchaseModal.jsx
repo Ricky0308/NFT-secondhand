@@ -9,8 +9,11 @@ import Modal from "@mui/material/Modal";
 import Slider from "@mui/material/Slider";
 import Hyousi from "../pic/hyousi.png";
 import TradeHandler from "../functions/tradeHandler";
+import { useContext, useEffect } from "react";
+import { PurchaseInfoContext } from "../providers/PurchaseInfoProvider";
 
 export default function PurchaseModal({ open, handleClose }) {
+  const { token, setTokenId } = useContext(PurchaseInfoContext);
   const [Buy_price, setText_5] = React.useState("");//購入価格のテキスト保存
 
   const [value, setValue] = React.useState(30);
