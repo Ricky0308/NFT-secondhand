@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FetchContentInfo } from "../api/functions"
+import { assignmentHandler } from "../functions/assignmentHandler";
+import { ethers } from "ethers";
 
 /* Material ui */
 import Typography from "@mui/material/Typography";
@@ -27,6 +29,7 @@ export default function Assignment() {
     const [address, setAddress] = React.useState("");
     const inputRef = React.useRef(null);
     const [inputError, setInputError] = React.useState(false);
+    const [ tokenId, setTokenId ] = React.useState("");
 
     useEffect(() => {
         FetchContentInfo(bookId)
@@ -48,11 +51,16 @@ export default function Assignment() {
                 console.log(res);
                 if (res){
                     console.log("parseint");
-                    console.log(parseInt(res.value["_hex"], 16));
+                    console.log(res.data);
+                    console.log(parseInt(res.data, 16));
+                    console.log(ethers.utils.formatEther(res.data))
                     setTokenId(parseInt(res.value["_hex"], 16));
                 }
             })
     }
+
+    console.log("necessary info");
+    console.log([bookId, address, value]);
 
     const textChange = (e) => {
         setAddress(e.target.value);
