@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/system";
 import Subtitle from "../components/subtitle";
 import { useNavigate } from "react-router-dom";
+import Test from "../Test";
 
 import contract from "../contracts/abi.json";
 import { ethers } from "ethers";
@@ -18,7 +19,7 @@ export default function Bookshell(){
     const [ bookIdArray, setBookIdArray ] = useState([]);
     useEffect(()=>{
         setBookIdArray(AddressToContentsId());
-        get_nftHandler();
+        Test.get_nftHandler()
             .then((items) => {
                 setBookIdArray(items);
             })
