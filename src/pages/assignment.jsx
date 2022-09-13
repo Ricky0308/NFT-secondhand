@@ -13,15 +13,18 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Hyousi from "../pic/hyousi.png";
 import Modal from "@mui/material/Modal";
-
+import { Collapse } from "@material-ui/core";
+import { Alert } from "@mui/material";
 import Subtitle from "../components/subtitle";
 
 export default function Assignment() {
     const { bookId } = useParams()
     const [value, setValue] = React.useState(500);
-    const [ title, setTitle ] = React.useState("");
-    const [ cover, setCover ] = React.useState("");
+    const [title, setTitle] = React.useState("");
+    const [cover, setCover] = React.useState("");
     const [address, setAddress] = React.useState("");
+    const inputRef = React.useRef(null);
+    const [inputError, setInputError] = React.useState(false);
 
     useEffect(() => {
         FetchContentInfo(bookId)
@@ -33,6 +36,19 @@ export default function Assignment() {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+
+    };
+
+    const textChange = (e) => {
+        setAddress(e.target.value);
+        if (inputRef.current) {
+            const ref = inputRef.current;
+            if (!ref.validity.valid) {
+                setInputError(true);
+            } else {
+                setInputError(false);
+            }
+        }
     };
 
     const [open, setOpen] = React.useState(false);
@@ -43,7 +59,7 @@ export default function Assignment() {
 
     return (
         <div style={{ textAlign: "left" }}>
-            <Subtitle text= "譲渡する"/>
+            <Subtitle text="譲渡する" />
             {/* <Typography
                 variant="h3"
                 fontWeight="bold"
@@ -86,12 +102,15 @@ export default function Assignment() {
                                     相手のアドレス
                                 </Typography>
                                 <TextField
+                                    inputProps={{ maxLength: 42, pattern: "0x[a-zA-Z0-9_]+" }}
+                                    inputRef={inputRef}
                                     id="address"
                                     fullWidth
                                     label="Adress"
                                     variant="outlined"
                                     value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
+                                    helperText={inputRef?.current?.validationMessage}
+                                    onChange={(e) => textChange(e)}
                                 />
                                 <Typography
                                     variant="h5"
