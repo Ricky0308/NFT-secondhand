@@ -4,6 +4,7 @@ import AppBar from "@mui/material/AppBar";
 import Test from "./Test";
 import Assignment from "./pages/assignment";
 import Purchase from "./pages/purchase";
+import Error404 from "./pages/error404";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Button } from "@mui/material";
@@ -21,7 +22,7 @@ function App() {
           <Route path={`/test`} element={<Test />} />
           <Route path={`/`} element={<Assignment />} />
           <Route path={`/p`} element={<Purchase />} />
-          {/* <Route path={`*`} element={<Error />} /> */}
+          <Route path={`*`} element={<Error404 />} />
         </Routes>
       </BrowserRouter>
     </div>
