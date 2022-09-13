@@ -39,10 +39,8 @@ export const BookCard = ({bookId}) => {
                 {title}
             </CardContent>
             <CardActions>
-                <Button
-                    sx={ButtonCss}
-                    size="small"
-                >売る
+                <Button variant="contained">
+                    売る
                 </Button>
             </CardActions>
             {/* <div style={{height : "10px", backgroundColor:"yellow"}}></div> */}
@@ -89,7 +87,7 @@ const CardCss = {
     textAlign : "center",
 }
 
-const ButtonCss = {
-    margin : "auto", 
-    marginBottom : "2%",
-}
+// const ButtonCss = {
+//     margin : "auto", 
+//     marginBottom : "2%",
+// }

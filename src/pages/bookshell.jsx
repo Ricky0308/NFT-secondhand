@@ -25,13 +25,6 @@ export default function Bookshell(){
                     textAlign : "center"
                 }}
             >
-                <Box
-                    component="span"
-                    sx={{
-                    }}
-                >
-                    あんたの本棚
-                </Box>
                 <Container
                     sx={{
                         display : "flex",
