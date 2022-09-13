@@ -8,6 +8,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
+import MintHandler, { mint_nftHandler } from "../functions/mint_nefHandler"
 export default function Publuish() {
     const [book_num, setNum] = React.useState('');
     const handleChange = (event) => {
@@ -61,7 +62,7 @@ export default function Publuish() {
                             </Box>
                             <Stack direction="row">
                                 <div style={{ flexGrow: 1 }}></div>
-                                <Button variant="contained">
+                                <Button variant="contained" onClick={()=> MintHandler(book_num)  }  >
                                     発行
                                 </Button>
                             </Stack>
