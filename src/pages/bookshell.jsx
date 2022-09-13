@@ -2,6 +2,7 @@ import React from "react";
 import { BookCard } from "../components/bookcard";
 import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/system";
+import Subtitle from "../components/subtitle";
 
 const AddressToContentsId = () => {
     return [1, 100]
@@ -17,6 +18,8 @@ export default function Bookshell(){
 
     return(
         <>
+        <Subtitle text = "本棚"/>
+        <Box sx={{ backgroundColor: "#edf2f7", padding: 5, height: "100vh" }}>
             <Container
                 sx={{
                     textAlign : "center"
@@ -42,6 +45,7 @@ export default function Bookshell(){
                     {bookIdArray.map((id) => <BookCard key={id} bookId={id}/>)}
                 </Container>
             </Container>
+        </Box>
         </>
     )
 }
