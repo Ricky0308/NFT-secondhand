@@ -3,6 +3,7 @@ import { BookCard } from "../components/bookcard";
 import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/system";
 import Subtitle from "../components/subtitle";
+import { useNavigate } from "react-router-dom";
 
 const AddressToContentsId = () => {
     return [1, 100]
@@ -15,6 +16,7 @@ export default function Bookshell(){
         setBookIdArray(AddressToContentsId());
 
     }, [])
+
 
     return(
         <>
