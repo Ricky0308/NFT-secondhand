@@ -4,9 +4,8 @@ import contract from '../contracts/abi.json';
 import contractAddress from "../contracts/contractAddress"
 const abi = contract.abi;
 
-export default function TradeHandler(buyPrice) {
+export default function TradeHandler(Buy_Token_id, buyPrice) {
     const Selling_price = "";
-    const Buy_Token_id = "";
     const tradeHandler = async () => {
         try {
             console.log("wawawawa" + buyPrice);
