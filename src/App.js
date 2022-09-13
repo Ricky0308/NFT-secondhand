@@ -6,6 +6,7 @@ import Navbar from "./pages/navbar";
 import Assignment from "./pages/assignment";
 import Purchase from "./pages/purchase";
 import React from "react";
+import Bookshell from "./pages/bookshell";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Button } from "@mui/material";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path={`/test`} element={<Test />} />
           <Route path={`/a`} element={<Assignment />} />
           <Route path={`/p`} element={<Purchase />} />
+          <Route path={`/bookshell`} element={<Bookshell />} />
           {/* <Route path={`*`} element={<Error />} /> */}
         </Routes>
       </BrowserRouter>
