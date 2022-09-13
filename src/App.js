@@ -2,10 +2,12 @@ import "./App.css";
 import Typography from "@mui/material/Typography";
 import AppBar from "@mui/material/AppBar";
 import Test from "./Test";
+import Navbar from "./pages/navbar";
 import Assignment from "./pages/assignment";
 import Purchase from "./pages/purchase";
 import Error404 from "./pages/error404";
 import React from "react";
+import Bookshell from "./pages/bookshell";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Button } from "@mui/material";
 
@@ -13,15 +15,14 @@ function App() {
   return (
     <div className="App">
       <AppBar position="static" style={{ backgroundColor: "#534F69" }}>
-        <Typography component="h1" variant="h44" margin={2}>
-          Secondly
-        </Typography>
+      <Navbar />
       </AppBar>
       <BrowserRouter>
         <Routes>
           <Route path={`/test`} element={<Test />} />
-          <Route path={`/`} element={<Assignment />} />
-          <Route path={`/p`} element={<Purchase />} />
+          <Route path={`/assignment/:bookId`} element={<Assignment />} />
+          <Route path={`/purchase`} element={<Purchase />} />
+          <Route path={`/bookshell`} element={<Bookshell />} />
           <Route path={`*`} element={<Error404 />} />
         </Routes>
       </BrowserRouter>

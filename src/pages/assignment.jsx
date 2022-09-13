@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { FetchContentInfo } from "../api/functions"
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -11,9 +13,20 @@ import Hyousi from "../pic/hyousi.png";
 import Modal from "@mui/material/Modal";
 
 export default function Assignment() {
+    const { bookId } = useParams()
     const [value, setValue] = React.useState(500);
-    const title = "タイトル";
+    const [ title, setTitle ] = React.useState("");
+    const [ cover, setCover ] = React.useState("");
     const [address, setAddress] = React.useState("");
+
+    useEffect(() => {
+        FetchContentInfo(bookId)
+            .then((data) => {
+                setTitle(data.title);
+                setCover(data.cover);
+            })
+    }, [])
+
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
@@ -55,7 +68,7 @@ export default function Assignment() {
                         >
                             <Box sx={{ width: 300, textAlign: "center" }}>
                                 <img
-                                    src={Hyousi}
+                                    src={cover}
                                     alt=" "
                                     style={{ width: 200, marginTop: 50 }}
                                 />
