@@ -1,3 +1,3 @@
-const contractAddress = "0xbD08636bA29E5227Cee033D07674f35e39b7e02c"
+const contractAddress = "0xcea4E38a80f783D85FE0C25abAb2640d906aeB25"
 
 export default contractAddress
