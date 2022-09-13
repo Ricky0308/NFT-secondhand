@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/system";
 import { get_nftHandler } from "../functions/get_nftHandler";
 
+
 const AddressToContentsId = () => {
     return [1, 100]
 }
@@ -11,7 +12,6 @@ const AddressToContentsId = () => {
 export default function Bookshell(){
     const [ bookIdArray, setBookIdArray ] = useState([]);
     useEffect(()=>{
-        setBookIdArray(AddressToContentsId());
         get_nftHandler()
             .then((items) => {
                 setBookIdArray(items);
