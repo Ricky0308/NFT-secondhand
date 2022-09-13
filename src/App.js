@@ -19,8 +19,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={`/test`} element={<Test />} />
-          <Route path={`/a/:bookId`} element={<Assignment />} />
-          <Route path={`/p`} element={<Purchase />} />
+          <Route path={`/assignment/:bookId`} element={<Assignment />} />
+          <Route path={`/purchase`} element={<Purchase />} />
           <Route path={`/bookshell`} element={<Bookshell />} />
           {/* <Route path={`*`} element={<Error />} /> */}
         </Routes>
