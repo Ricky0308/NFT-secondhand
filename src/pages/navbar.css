@@ -1,0 +1,8 @@
+.navbar-nav{
+    /*追加*/display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border-top: 1px solid #333;
+    border-left: 1px solid #333;
+}
