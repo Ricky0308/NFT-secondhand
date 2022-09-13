@@ -19,10 +19,10 @@ export default function Bookshell(){
     const [ bookIdArray, setBookIdArray ] = useState([]);
     useEffect(()=>{
         setBookIdArray(AddressToContentsId());
-        Test.get_nftHandler()
-            .then((items) => {
-                setBookIdArray(items);
-            })
+        // get_nftHandler()
+        //     .then((items) => {
+        //         setBookIdArray(items);
+        //     })
     }, [])
 
 

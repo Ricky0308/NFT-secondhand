@@ -2207,6 +2207,146 @@
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.6.tgz"
   "version" "2.11.6"
 
+"@react-pdf-viewer/attachment@3.7.0":
+  "integrity" "sha512-qNzhOnyMfoRA+8uJOgxSVvix+yQKzDCEur7jLVQbqnvyu94k6hZI9h+JVC5TAb5SQ7q/AdVT7Upc6ZH9ayhUQQ=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/attachment/-/attachment-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/bookmark@3.7.0":
+  "integrity" "sha512-pgFzlh8EzMICb7McIi0GiWwuXsc/ooSc4KTbb0NZaMHpT0LS36jYKgKBNIv9xgzhRu8Qbs0oJmN9LRbzzAoAJw=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/bookmark/-/bookmark-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/core@^3.7.0", "@react-pdf-viewer/core@3.7.0":
+  "integrity" "sha512-mMuG+bBNG+XdhK5QfdiC7h0wkXlleKCkGUmz53QIw/56ppmwTTqvK5u5JeAo/Tr7vS7wHpAgp26qCxL6NUHa4Q=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/core/-/core-3.7.0.tgz"
+  "version" "3.7.0"
+
+"@react-pdf-viewer/default-layout@^3.7.0":
+  "integrity" "sha512-JNXF5idSf5owcWgRXTLPBGHa1jHjUfDZjvUIK8HQACBWYVf8HqX1hoA8OwfcmSVdvyikfCohTg2nXwBVY7mDEw=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/default-layout/-/default-layout-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/attachment" "3.7.0"
+    "@react-pdf-viewer/bookmark" "3.7.0"
+    "@react-pdf-viewer/core" "3.7.0"
+    "@react-pdf-viewer/thumbnail" "3.7.0"
+    "@react-pdf-viewer/toolbar" "3.7.0"
+
+"@react-pdf-viewer/full-screen@3.7.0":
+  "integrity" "sha512-hBtdAIAkm3I8rhjWAivWAonect1tIdiBOY4ufXaTXapnLiTR/0qh+e5xNF7d9/viLfMeTl8aEpLkzhU5B4GWrw=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/full-screen/-/full-screen-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/get-file@3.7.0":
+  "integrity" "sha512-mB94ryiiSud2moG0IFItzblgsB3H4VyfovHSVaqgSBabWjCsJSnk53Y81wuxtGY2goTfNcei93rso02ymj9R/w=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/get-file/-/get-file-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/open@3.7.0":
+  "integrity" "sha512-hB4Y85eWTAR6I3jjy1klC3u1kq95shzcMKt33N2R+yrzxpcp56GIJbavVY5C4hEFMwpmzKaUJ0CwV9nb75b1gw=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/open/-/open-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/page-navigation@3.7.0":
+  "integrity" "sha512-dtq6qCyfaCBXycBf+71PmK68OuFuTa4irbTiWD5+NY2LbWZW4+J5Talo+RuMr8fFPGPifi/Le0rdi7WPZLWNzA=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/page-navigation/-/page-navigation-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/print@3.7.0":
+  "integrity" "sha512-C+cKpjNtewahVLX/boIUsGD09/MZ27d6j66DRlef/C51zViFNwyxVaKfyspu79zZVWCeaShp5o4w/FCvb1rzvQ=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/print/-/print-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/properties@3.7.0":
+  "integrity" "sha512-ZxvZ0DZy4mvxo36vDhNVBlQ1NaVuNXKNa1QsdwMg9kNXM1mKNmXlEzyQidx1R2CDex9N8nqLrNgHisXdtJySUA=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/properties/-/properties-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/rotate@3.7.0":
+  "integrity" "sha512-AMCy4hJLuHTbtEhgIJKpJn/qF8Nq+0xKPB0JpAQPNMzi3rG4GMBdPM8EtfyiyN/7K/cfw+WPVCiGKYSMKwWk0A=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/rotate/-/rotate-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/scroll-mode@3.7.0":
+  "integrity" "sha512-GkOxElu9aN2o7XX9YhviFTGnhuHB391uqf4zYWT845Z4iBj+ZlchmorFMg1HKR0ym59kzKzkhj9T+R9BAGQT0A=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/scroll-mode/-/scroll-mode-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/search@3.7.0":
+  "integrity" "sha512-5Sbeok3DL8BV8v/pl80kQQi6PqUJMobrAp6gcDKkJM1Y5HRH0B7/tzhY9ztAv4O+2RcqA4ODvKQZNeLnooxrYA=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/search/-/search-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/selection-mode@3.7.0":
+  "integrity" "sha512-lM8HjFHecU53yqVtFX7ZORYzoR9aGwxZj1lQDaX6CwpYlM4IdOg11nfkgg0Gxyw8mrF3uCko7USEfSy38IbBog=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/selection-mode/-/selection-mode-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/theme@3.7.0":
+  "integrity" "sha512-/ftM+8PeD1yyT8IvPIZDjCqrpHwO1LS8OvQzRpHK2gTUFqPMFCfVwb6ukaav/aTMav/1Un5TVK/vp50RsAVgYA=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/theme/-/theme-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/thumbnail@3.7.0":
+  "integrity" "sha512-+NEoBRQI7h64Gm5vyRnJfYYCWqDaPcRd6ihQowauLjdJnbAWpKy1PYs/YGxzICCMo3p8qWIZJbyfS2XaA+q+SQ=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/thumbnail/-/thumbnail-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
+"@react-pdf-viewer/toolbar@3.7.0":
+  "integrity" "sha512-Gic7tSB68/ikTCKU2Rd7HuM65N6J9k708VGgQ1mj5dCpJvi+1fCTfuP7huF/T5cjfzkCTHCWDLCU5GkSKE2OSQ=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/toolbar/-/toolbar-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+    "@react-pdf-viewer/full-screen" "3.7.0"
+    "@react-pdf-viewer/get-file" "3.7.0"
+    "@react-pdf-viewer/open" "3.7.0"
+    "@react-pdf-viewer/page-navigation" "3.7.0"
+    "@react-pdf-viewer/print" "3.7.0"
+    "@react-pdf-viewer/properties" "3.7.0"
+    "@react-pdf-viewer/rotate" "3.7.0"
+    "@react-pdf-viewer/scroll-mode" "3.7.0"
+    "@react-pdf-viewer/search" "3.7.0"
+    "@react-pdf-viewer/selection-mode" "3.7.0"
+    "@react-pdf-viewer/theme" "3.7.0"
+    "@react-pdf-viewer/zoom" "3.7.0"
+
+"@react-pdf-viewer/zoom@3.7.0":
+  "integrity" "sha512-EP95GvUDliJxvE5HcNMZAaqeTqs51SBl8ZDmyOEjkP3P67xMenKOEPXFyVhrqXnN0GMNv0TO2r8AVIOznwGgEQ=="
+  "resolved" "https://registry.npmjs.org/@react-pdf-viewer/zoom/-/zoom-3.7.0.tgz"
+  "version" "3.7.0"
+  dependencies:
+    "@react-pdf-viewer/core" "3.7.0"
+
 "@rollup/plugin-node-resolve@^7.1.1":
   "integrity" "sha512-RxtSL3XmdTAE2byxekYLnx+98kEUOrPHF/KRVjLH+DEIHy6kjIw7YINQzn+NXiH/NTrQLAwYs0GWB+csWygA9Q=="
   "resolved" "https://registry.npmjs.org/@rollup/plugin-node-resolve/-/plugin-node-resolve-7.1.3.tgz"
@@ -5203,6 +5343,11 @@
   "version" "4.2.2"
   dependencies:
     "domelementtype" "^2.2.0"
+
+"dommatrix@^1.0.3":
+  "integrity" "sha512-l32Xp/TLgWb8ReqbVJAFIvXmY7go4nTxxlWiAFyhoQw9RKEOHBZNnyGvJWqDVSPmq3Y9HlM4npqF/T6VMOXhww=="
+  "resolved" "https://registry.npmjs.org/dommatrix/-/dommatrix-1.0.3.tgz"
+  "version" "1.0.3"
 
 "domutils@^1.7.0":
   "integrity" "sha512-Lgd2XcJ/NjEw+7tFvfKxOzCYKZsdct5lczQ2ZaQY8Djz7pfAD3Gbp8ySJWtreII/vDlMVmxwa6pHmdxIYgttDg=="
@@ -9380,6 +9525,14 @@
     "safe-buffer" "^5.0.1"
     "sha.js" "^2.4.8"
 
+"pdfjs-dist@^2.6.347":
+  "integrity" "sha512-J4dn41spsAwUxCpEoVf6GVoz908IAA3mYiLmNxg8J9kfRXc2jxpbUepcP0ocp0alVNLFthTAM8DZ1RaHh8sU0A=="
+  "resolved" "https://registry.npmjs.org/pdfjs-dist/-/pdfjs-dist-2.16.105.tgz"
+  "version" "2.16.105"
+  dependencies:
+    "dommatrix" "^1.0.3"
+    "web-streams-polyfill" "^3.2.1"
+
 "performance-now@^2.1.0":
   "integrity" "sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns="
   "resolved" "https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz"
@@ -10459,7 +10612,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@*", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^17.0.0 || ^18.0.0", "react-dom@^17.0.2", "react-dom@>=16.6.0", "react-dom@>=16.8":
+"react-dom@*", "react-dom@^16.8.0 || ^17.0.0", "react-dom@^17.0.0 || ^18.0.0", "react-dom@^17.0.2", "react-dom@>=16.6.0", "react-dom@>=16.8", "react-dom@>=16.8.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -12625,6 +12778,11 @@
   "version" "1.7.3"
   dependencies:
     "minimalistic-assert" "^1.0.0"
+
+"web-streams-polyfill@^3.2.1":
+  "integrity" "sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q=="
+  "resolved" "https://registry.npmjs.org/web-streams-polyfill/-/web-streams-polyfill-3.2.1.tgz"
+  "version" "3.2.1"
 
 "web-vitals@^1.0.1":
   "integrity" "sha512-PFMKIY+bRSXlMxVAQ+m2aw9c/ioUYfDgrYot0YUa+/xa0sakubWhSDyxAKwzymvXVdF4CZI71g06W+mqhzu6ig=="

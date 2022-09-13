@@ -150,7 +150,7 @@ function Nav() {
         <AppBar position="static">
             <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Button color="inherit" href="/" sx={{ mx: 1 }}>
+                <Button color="inherit" href="/bookshell" sx={{ mx: 1 }}>
                     Secondly
                 </Button>
             </Typography>
