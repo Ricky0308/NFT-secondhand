@@ -13,11 +13,10 @@ import { useContext, useEffect } from "react";
 import { PurchaseInfoContext } from "../providers/PurchaseInfoProvider";
 
 export default function PurchaseModal({ open, handleClose }) {
-  const { token, setTokenId } = useContext(PurchaseInfoContext);
+  const { cover, title } = useContext(PurchaseInfoContext);
   const [Buy_price, setText_5] = React.useState("");//購入価格のテキスト保存
 
   const [value, setValue] = React.useState(30);
-  const title = "タイトル";
   const minFee = 200
 
   const handleChange = (event, newValue) => {
@@ -61,7 +60,7 @@ export default function PurchaseModal({ open, handleClose }) {
           >
             <Box sx={{ width: 300, textAlign: "center" }}>
               <img
-                src={Hyousi}
+                src={cover}
                 alt=" "
                 style={{ width: 150, marginTop: 20, marginBottom: 20 }}
               />
@@ -102,7 +101,7 @@ export default function PurchaseModal({ open, handleClose }) {
             キャンセル
           </Button>
           {/* <Button variant="contained" onClick={()=>{console.log(Buy_price)}} className='cta-button mint-nft-button'>購入</Button> */}
-          <Button variant="contained" onClick={() => { TradeHandler(Buy_price) }} className='cta-button mint-nft-button'>購入</Button>
+          <Button variant="contained" onClick={() => { TradeHandler(Buy_price.toString()) }} className='cta-button mint-nft-button'>購入</Button>
         </Stack>
       </Box>
     </Modal>

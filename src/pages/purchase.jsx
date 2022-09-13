@@ -13,19 +13,37 @@ import { useContext } from "react";
 import { PurchaseInfoContext } from "../providers/PurchaseInfoProvider";
 import { get_approved_manga } from "../functions/get_approved_manga";
 import { useEffect } from "react";
+import { FetchContentInfo } from "../api/functions";
 
 const abi = contract.abi;
 
 export default function Purchase() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const { token, setTokenId } = useContext(PurchaseInfoContext);
+    const { tokenId, setTokenId, setCover, cover, title, setTitle } = useContext(PurchaseInfoContext);
 
     useEffect(() => {
-        console.log(token);
-    }, [token])
+        get_approved_manga(tokenId)
+            .then((res) => {
+                console.log(parseInt())
+                if (res ){
+                    const bookId = parseInt(res[0]["_hex"], 16);
+                    const price = parseInt(res[1]["_hex"], 16);
+                    const buyer = parseInt(res[2]["_hex"], 16);
+                    return bookId;
+                }
+            })
+            .then((bookId)=>{
+                return FetchContentInfo(bookId)
+            })
+            .then((items)=>{
+                setCover(items.cover);
+                setTitle(items.title);
+            })
+    }, [tokenId])
 
     console.log("purchase");
+    console.log(title);
     return (
         <div style={{ textAlign: "left" }}>
             <Typography
@@ -56,7 +74,7 @@ export default function Purchase() {
                                     fullWidth
                                     label="Token ID"
                                     variant="outlined"
-                                    value={token}
+                                    value={tokenId}
                                     onChange={(e) => setTokenId(e.target.value)}
                                 />
                             </Box>
