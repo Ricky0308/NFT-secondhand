@@ -4,7 +4,7 @@ import React from "react";
 import {useEffect, useState } from 'react';
 import { Grid } from '@material-ui/core';
 import withdrawHandler from "../functions/withdrawHandler";
-import get_balanceHandler from "../functions/get_balanceHandler"
+import _get_balanceHandler from "../functions/get_balanceHandler"
 import LoginIcon from '@mui/icons-material/Login';
 import CheckIcon from '@mui/icons-material/Check';
 import AppBar from '@mui/material/AppBar';
@@ -34,10 +34,12 @@ function Nav() {
         setOpen(false);
     };
 
+
+
     const [currentAccount, setCurrentAccount] = useState(null);
     let connected = false;
     let installed = false;
-    const contractAddress = "0x6eff556A42A68aB1C87D70CDB504429E5E563b00";
+    const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
     const abi = contract.abi;
     const value=0;
     const checkWalletIsConnected = async () => {
@@ -63,6 +65,7 @@ function Nav() {
 
     window.ethereum.on('accountsChanged', function (accounts) {
       console.log("change");
+      //const aaa = _get_balanceHandler();
       get_balanceHandler();
     })
     const connectWalletHandler = async () => {
@@ -77,6 +80,7 @@ function Nav() {
         console.log("Found an account! Address: ", accounts[0]);
         setCurrentAccount(accounts[0]);
         get_balanceHandler();
+        
       } catch (err) {
         console.log(err)
       }
@@ -106,7 +110,7 @@ function Nav() {
     }
 
     const connectWalletButton = () => {
-        get_balanceHandler();
+        
         return (
           <button
           onClick = {() => {
@@ -152,11 +156,6 @@ function Nav() {
             <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
                 <Button color="inherit" href="/p" sx={{ mx: 1 }}>
                     購入    
-                </Button>
-            </Typography>
-            <Typography variant="h7"  component="div" sx={{ flexGrow: 1 }}>
-                <Button color="inherit" href="/a" sx={{ mx: 1 }}>
-                    譲渡
                 </Button>
             </Typography>
             <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>

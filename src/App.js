@@ -5,6 +5,7 @@ import Test from "./Test";
 import Navbar from "./pages/navbar";
 import Assignment from "./pages/assignment";
 import Purchase from "./pages/purchase";
+import Confirm from "./pages/confirm_transfer";
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Button } from "@mui/material";
@@ -20,6 +21,8 @@ function App() {
           <Route path={`/test`} element={<Test />} />
           <Route path={`/a`} element={<Assignment />} />
           <Route path={`/p`} element={<Purchase />} />
+          <Route path={`/c`} element={<Confirm />} />
+          <></>
           {/* <Route path={`*`} element={<Error />} /> */}
         </Routes>
       </BrowserRouter>
