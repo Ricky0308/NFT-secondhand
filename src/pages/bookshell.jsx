@@ -2,7 +2,13 @@ import React from "react";
 import { BookCard } from "../components/bookcard";
 import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/system";
-import { get_nftHandler } from "../functions/get_nftHandler";
+import Subtitle from "../components/subtitle";
+import { useNavigate } from "react-router-dom";
+
+import contract from "../contracts/abi.json";
+import { ethers } from "ethers";
+const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
+const abi = contract.abi;
 
 
 const AddressToContentsId = () => {
@@ -18,20 +24,16 @@ export default function Bookshell(){
             })
     }, [])
 
+
     return(
         <>
+        <Subtitle text = "本棚"/>
+        <Box sx={{ backgroundColor: "#edf2f7", padding: 5, height: "100vh" }}>
             <Container
                 sx={{
                     textAlign : "center"
                 }}
             >
-                <Box
-                    component="span"
-                    sx={{
-                    }}
-                >
-                    あんたの本棚 
-                </Box>
                 <Container
                     sx={{
                         display : "flex",
@@ -45,6 +47,7 @@ export default function Bookshell(){
                     {bookIdArray.map((id) => <BookCard key={id} bookId={id}/>)}
                 </Container>
             </Container>
+        </Box>
         </>
     )
 }
