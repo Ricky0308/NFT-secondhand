@@ -16,7 +16,6 @@ export const BookCard = ({bookId}) => {
     const [ title, setTitle ] = useState("");
     const [ cover, setCover ] = useState("");
     useEffect(() => {
-        const coverUrl = BaseAPIUrl + "content_info/";
         FetchContentInfo(bookId)
             .then((data) => {
                 setTitle(data.title);
@@ -26,9 +25,9 @@ export const BookCard = ({bookId}) => {
     }, [])
 
     return(
-        <Card 
-            sx={CardCss}
-        >
+        <>
+        { title &&
+        <Card sx={CardCss}>
             <CardMedia
                 component="img"
                 image={cover}
@@ -47,13 +46,15 @@ export const BookCard = ({bookId}) => {
                     <Button variant="contained">
                         読む
                     </Button>
-                    <Button variant="contained" href="/assignment/:bookId">
+                    <Button variant="contained" href={`/assignment/${bookId}`}>
                         売る
                     </Button>
                 </Stack>
             </CardActions>
             {/* <div style={{height : "10px", backgroundColor:"yellow"}}></div> */}
         </Card>
+        }
+        </>
     )
 }
 
