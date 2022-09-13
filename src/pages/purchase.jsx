@@ -13,19 +13,47 @@ import { useContext } from "react";
 import { PurchaseInfoContext } from "../providers/PurchaseInfoProvider";
 import { get_approved_manga } from "../functions/get_approved_manga";
 import { useEffect } from "react";
+import { FetchContentInfo } from "../api/functions";
+import { BigNumber } from "ethers";
+import { ethers } from "ethers";
 
 const abi = contract.abi;
 
 export default function Purchase() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const { token, setTokenId } = useContext(PurchaseInfoContext);
+    const { tokenId, setTokenId, setCover, cover, title, setTitle, setNftPrice } = useContext(PurchaseInfoContext);
 
     useEffect(() => {
-        console.log(token);
-    }, [token])
+        get_approved_manga(tokenId)
+            .then((res) => {
+                if (res ){
+                    const bookId = parseInt(res[0]["_hex"], 16);
+                    const price = ethers.utils.formatEther(res[1]["_hex"]);
+                    const buyer = parseInt(res[2]);
+                    console.log("price");
+                    console.log(price);
+                    setNftPrice(price.toString());
+                    if (buyer == "0xac4FD9a49828e353512b0bD3d01589576757394A"){
+                        console.log("found!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    }
+                    return bookId;
+                }else{
+                    setCover("");
+                    setTitle("");
+                }
+            })
+            .then((bookId)=>{
+                return FetchContentInfo(bookId)
+            })
+            .then((items)=>{
+                setCover(items.cover);
+                setTitle(items.title);
+            })
+    }, [tokenId])
 
-    console.log("purchase");
+    console.log("tokenId");
+    console.log(tokenId);
     return (
         <div style={{ textAlign: "left" }}>
             <Typography
@@ -56,7 +84,7 @@ export default function Purchase() {
                                     fullWidth
                                     label="Token ID"
                                     variant="outlined"
-                                    value={token}
+                                    value={tokenId}
                                     onChange={(e) => setTokenId(e.target.value)}
                                 />
                             </Box>

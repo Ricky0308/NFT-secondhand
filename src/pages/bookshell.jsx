@@ -22,6 +22,7 @@ export default function Bookshell(){
         get_nftHandler()
             .then((items) => {
                 setBookIdArray(items);
+                console.log(items);
             })
     }, [])
 
