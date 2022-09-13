@@ -41,6 +41,19 @@ export default function Assignment() {
 
     };
 
+    const handleAssignmentButton = () => {
+        assignmentHandler(bookId, address, value)
+            .then((res) => {
+                console.log(`result from assignmentHandler`);
+                console.log(res);
+                if (res){
+                    console.log("parseint");
+                    console.log(parseInt(res.value["_hex"], 16));
+                    setTokenId(parseInt(res.value["_hex"], 16));
+                }
+            })
+    }
+
     const textChange = (e) => {
         setAddress(e.target.value);
         if (inputRef.current) {
@@ -179,7 +192,7 @@ export default function Assignment() {
                                 <Button variant="outlined" onClick={handleClose}>
                                     キャンセル
                                 </Button>
-                                <Button variant="contained">譲渡</Button>
+                                <Button variant="contained" onClick={()=>{handleAssignmentButton()}}>譲渡</Button>
                             </Stack>
                         </Box>
                     </Modal>
