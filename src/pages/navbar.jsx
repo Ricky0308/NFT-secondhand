@@ -150,18 +150,23 @@ function Nav() {
         <AppBar position="static">
             <Toolbar>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                <Button color="inherit" href="/" sx={{ mx: 1 }}>
+                <Button color="inherit" href="/bookshell" sx={{ mx: 1 }}>
                     Secondly
                 </Button>
             </Typography>
             <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
+                <Button color="inherit" href="/publish" sx={{ mx: 1 }}>
+                  発行   
+                </Button>
+            </Typography>
+            <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
                 <Button color="inherit" href="/purchase" sx={{ mx: 1 }}>
-                    購入    
+                  中古購入  
                 </Button>
             </Typography>
             <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
                 <Button color="inherit" href="/test" sx={{ mx: 1 }}>
-                    中古を購入
+                    テスト
                 </Button>
             </Typography>
             {currentAccount ? get_balanceButton() : connectWalletButton()}
