@@ -109,7 +109,7 @@ export default function Test() {
     }
   };
 
-  const get_mftHandler = async () => {
+  const get_nftHandler = async () => {
     var items = [];
     try {
       const { ethereum } = window;
@@ -250,7 +250,7 @@ export default function Test() {
 
   const get_nfts = () => {
     return (
-      <button onClick={get_mftHandler} className="cta-button mint-nft-button">
+      <button onClick={get_nftHandler} className="cta-button mint-nft-button">
         所持しているNFTから閲覧可能な巻を確認
       </button>
     );
