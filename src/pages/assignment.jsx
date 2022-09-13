@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FetchContentInfo } from "../api/functions"
+
+/* Material ui */
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -11,6 +13,8 @@ import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import Hyousi from "../pic/hyousi.png";
 import Modal from "@mui/material/Modal";
+
+import Subtitle from "../components/subtitle";
 
 export default function Assignment() {
     const { bookId } = useParams()
@@ -39,7 +43,8 @@ export default function Assignment() {
 
     return (
         <div style={{ textAlign: "left" }}>
-            <Typography
+            <Subtitle text= "譲渡"/>
+            {/* <Typography
                 variant="h3"
                 fontWeight="bold"
                 marginTop={5}
@@ -47,7 +52,7 @@ export default function Assignment() {
                 marginLeft={10}
             >
                 譲渡する
-            </Typography>
+            </Typography> */}
             <Box sx={{ backgroundColor: "#edf2f7", padding: 5, height: "100vh" }}>
                 <Container
                     maxWidth="lg"
