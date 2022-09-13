@@ -9,7 +9,6 @@ import contract from '../contracts/abi.json';
 import PurchaseModal from "../components/purchaseModal";
 import tradeHandler from "../functions/tradeHandler";
 
-const contractAddress = "0xBF13b1b64C2F4E8a7767b15034160dbF172CAe6D";
 const abi = contract.abi;
 
 export default function Purchase() {
