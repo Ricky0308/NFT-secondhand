@@ -5,6 +5,7 @@ import Test from "./Test";
 import Navbar from "./pages/navbar";
 import Assignment from "./pages/assignment";
 import Purchase from "./pages/purchase";
+import Publish from "./pages/publish";
 import Error404 from "./pages/error404";
 import Confirm from "./pages/confirm_transfer";
 import React from "react";
@@ -24,6 +25,7 @@ function App() {
           <Route path={`/`} element={<Assignment />} />
           <Route path={`/assignment/:bookId`} element={<Assignment />} />
           <Route path={`/purchase`} element={<Purchase />} />
+          <Route path={`/publish`} element={<Publish />} />
           <Route path={`/bookshell`} element={<Bookshell />} />
           <Route path={`*`} element={<Error404 />} />
         </Routes>
