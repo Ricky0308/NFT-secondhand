@@ -5,6 +5,8 @@ import Test from "./Test";
 import Navbar from "./pages/navbar";
 import Assignment from "./pages/assignment";
 import Purchase from "./pages/purchase";
+import Error404 from "./pages/error404";
+import Confirm from "./pages/confirm_transfer";
 import React from "react";
 import Bookshell from "./pages/bookshell";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -19,10 +21,11 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={`/test`} element={<Test />} />
+          <Route path={`/`} element={<Assignment />} />
           <Route path={`/assignment/:bookId`} element={<Assignment />} />
           <Route path={`/purchase`} element={<Purchase />} />
           <Route path={`/bookshell`} element={<Bookshell />} />
-          {/* <Route path={`*`} element={<Error />} /> */}
+          <Route path={`*`} element={<Error404 />} />
         </Routes>
       </BrowserRouter>
     </div>

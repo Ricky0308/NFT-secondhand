@@ -4,7 +4,7 @@ import "./App.css";
 import contract from "./contracts/abi.json";
 import { ethers } from "ethers";
 
-const contractAddress = "0xBF13b1b64C2F4E8a7767b15034160dbF172CAe6D";
+const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
 const abi = contract.abi;
 
 export default function Test() {
