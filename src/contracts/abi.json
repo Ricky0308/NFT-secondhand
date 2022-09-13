@@ -92,13 +92,7 @@
                 }
             ],
             "name": "approve_manga",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
+            "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
         },
@@ -300,6 +294,32 @@
         {
             "inputs": [],
             "name": "get_deposit",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "get_lastbuy",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "get_lastsale",
             "outputs": [
                 {
                     "internalType": "uint256",
