@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import contract from '../contracts/abi.json';
 
-const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
+import contractAddress from "../contracts/contractAddress"
 const abi = contract.abi;
 
 export default function WithdrawHandler() {
