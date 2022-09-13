@@ -12,25 +12,29 @@ import React from "react";
 import Bookshell from "./pages/bookshell";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Button } from "@mui/material";
+import theme from "./theme/theme";
+import { ThemeProvider } from "@emotion/react";
 
 function App() {
   return (
-    <div className="App">
-      <AppBar position="static" style={{ backgroundColor: "#534F69" }}>
-      <Navbar />
-      </AppBar>
-      <BrowserRouter>
-        <Routes>
-          <Route path={`/test`} element={<Test />} />
-          <Route path={`/`} element={<Assignment />} />
-          <Route path={`/assignment/:bookId`} element={<Assignment />} />
-          <Route path={`/purchase`} element={<Purchase />} />
-          <Route path={`/publish`} element={<Publish />} />
-          <Route path={`/bookshell`} element={<Bookshell />} />
-          <Route path={`*`} element={<Error404 />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <AppBar position="static" style={{ backgroundColor: "#534F69" }}>
+          <Navbar />
+        </AppBar>
+        <BrowserRouter>
+          <Routes>
+            <Route path={`/test`} element={<Test />} />
+            <Route path={`/`} element={<Assignment />} />
+            <Route path={`/assignment/:bookId`} element={<Assignment />} />
+            <Route path={`/purchase`} element={<Purchase />} />
+            <Route path={`/publish`} element={<Publish />} />
+            <Route path={`/bookshell`} element={<Bookshell />} />
+            <Route path={`*`} element={<Error404 />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
 
