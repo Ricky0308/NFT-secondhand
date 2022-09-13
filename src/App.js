@@ -6,6 +6,7 @@ import Navbar from "./pages/navbar";
 import Assignment from "./pages/assignment";
 import Purchase from "./pages/purchase";
 import Error404 from "./pages/error404";
+import Confirm from "./pages/confirm_transfer";
 import React from "react";
 import Bookshell from "./pages/bookshell";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
