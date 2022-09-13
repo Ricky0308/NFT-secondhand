@@ -68,6 +68,7 @@ function Nav() {
       //const aaa = _get_balanceHandler();
       get_balanceHandler();
     })
+    
     const connectWalletHandler = async () => {
       const { ethereum } = window;
   

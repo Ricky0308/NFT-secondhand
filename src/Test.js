@@ -72,8 +72,9 @@ export default function Test() {
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         const _balance = await nftContract.get_deposit();
-        // console.log(_balance["_hex"]);
-        // console.log(parseInt(_balance["_hex"],16));
+        console.log("_balance succeeded");
+        console.log(_balance["_hex"]);
+        // console.log(parseInt(_balance["_hex"],16)); 
 
         setText_0(parseInt(_balance["_hex"], 16) / 1000000000000000000); //weiからEtherに変換
       } else {
@@ -94,7 +95,7 @@ export default function Test() {
         const nftContract = new ethers.Contract(contractAddress, abi, signer);
 
         let nftTxn = await nftContract.mint(mint_mode, {
-          value: ethers.utils.parseEther("0.05"),
+          value: ethers.utils.parseEther("0.002"),
         });
 
         await nftTxn.wait();
