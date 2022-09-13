@@ -65,6 +65,7 @@ function Nav() {
       console.log("change");
       get_balanceHandler();
     })
+    
     const connectWalletHandler = async () => {
       const { ethereum } = window;
   
