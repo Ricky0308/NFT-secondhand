@@ -11,7 +11,7 @@ import Confirm from "./pages/confirm_transfer";
 import React from "react";
 import Bookshell from "./pages/bookshell";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Button } from "@mui/material";
+
 
 function App() {
   return (
@@ -27,7 +27,6 @@ function App() {
           <Route path={`/purchase`} element={<Purchase />} />
           <Route path={`/publish`} element={<Publish />} />
           <Route path={`/bookshell`} element={<Bookshell />} />
-          <Route path={`*`} element={<Error404 />} />
         </Routes>
       </BrowserRouter>
     </div>
