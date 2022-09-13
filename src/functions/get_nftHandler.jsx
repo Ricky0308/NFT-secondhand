@@ -1,6 +1,6 @@
 import contract from "../contracts/abi.json";
 import { ethers } from "ethers";
-const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
+import contractAddress from "../contracts/contractAddress";
 const abi = contract.abi;
 
 

@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
 import contract from '../contracts/abi.json';
-import contractAddress from '../contracts/contractAddress,jsx';
+import contractAddress from "../contracts/contractAddress";
 
 //<GetbalanceHandler setDepo(x) => { setDeposit(x) }  />でよびだせそう 
 
