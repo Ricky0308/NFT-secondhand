@@ -43,7 +43,7 @@ export default function Assignment() {
 
     return (
         <div style={{ textAlign: "left" }}>
-            <Subtitle text= "譲渡"/>
+            <Subtitle text= "譲渡する"/>
             {/* <Typography
                 variant="h3"
                 fontWeight="bold"
