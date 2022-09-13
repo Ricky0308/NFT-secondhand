@@ -14,23 +14,33 @@ import { PurchaseInfoContext } from "../providers/PurchaseInfoProvider";
 import { get_approved_manga } from "../functions/get_approved_manga";
 import { useEffect } from "react";
 import { FetchContentInfo } from "../api/functions";
+import { BigNumber } from "ethers";
+import { ethers } from "ethers";
 
 const abi = contract.abi;
 
 export default function Purchase() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const { tokenId, setTokenId, setCover, cover, title, setTitle } = useContext(PurchaseInfoContext);
+    const { tokenId, setTokenId, setCover, cover, title, setTitle, setNftPrice } = useContext(PurchaseInfoContext);
 
     useEffect(() => {
         get_approved_manga(tokenId)
             .then((res) => {
-                console.log(parseInt())
                 if (res ){
                     const bookId = parseInt(res[0]["_hex"], 16);
-                    const price = parseInt(res[1]["_hex"], 16);
-                    const buyer = parseInt(res[2]["_hex"], 16);
+                    const price = ethers.utils.formatEther(res[1]["_hex"]);
+                    const buyer = parseInt(res[2]);
+                    console.log("price");
+                    console.log(price);
+                    setNftPrice(price.toString());
+                    if (buyer == "0xac4FD9a49828e353512b0bD3d01589576757394A"){
+                        console.log("found!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    }
                     return bookId;
+                }else{
+                    setCover("");
+                    setTitle("");
                 }
             })
             .then((bookId)=>{
@@ -42,8 +52,8 @@ export default function Purchase() {
             })
     }, [tokenId])
 
-    console.log("purchase");
-    console.log(title);
+    console.log("tokenId");
+    console.log(tokenId);
     return (
         <div style={{ textAlign: "left" }}>
             <Typography

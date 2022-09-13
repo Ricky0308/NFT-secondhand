@@ -7,6 +7,7 @@ export const PurchaseInfoProvider = (props) => {
     const [ tokenId, setTokenId ] = useState("");
     const [ cover, setCover ] = useState("");
     const [ title, setTitle ] = useState("");
+    const [ nftPrice, setNftPrice ] = useState("");
 
     const context = {
         tokenId, 
@@ -15,6 +16,8 @@ export const PurchaseInfoProvider = (props) => {
         setCover,
         title, 
         setTitle,
+        nftPrice, 
+        setNftPrice,
     }
 
     return (
