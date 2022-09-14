@@ -5,11 +5,6 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-// import contract from '../contracts/abi.json';
-// import tradeHandler from "../functions/tradeHandler";
-
-// const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
-// const abi = contract.abi;
 
 export default function Confirm() {
     const [open, setOpen] = React.useState(false);

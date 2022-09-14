@@ -3,8 +3,8 @@ import { BookCard } from "../components/bookcard";
 import { useEffect, useState } from "react";
 import { Box, Container } from "@mui/system";
 import Subtitle from "../components/subtitle";
-import { useNavigate } from "react-router-dom";
-import Test from "../Test";
+// import { useNavigate } from "react-router-dom";
+// import Test from "../Test";
 import { get_nftHandler } from "../functions/get_nftHandler"
 
 // import contract from "../contracts/abi.json";
@@ -12,9 +12,9 @@ import { get_nftHandler } from "../functions/get_nftHandler"
 // const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
 // const abi = contract.abi;
 
-const AddressToContentsId = () => {
-    return [1, 100]
-}
+// const AddressToContentsId = () => {
+//     return [1, 100]
+// }
 
 export default function Bookshell() {
     const [bookIdArray, setBookIdArray] = useState([]);
@@ -22,6 +22,7 @@ export default function Bookshell() {
         get_nftHandler()
             .then((items) => {
                 setBookIdArray(items);
+                console.log(items);
             })
     }, [])
 

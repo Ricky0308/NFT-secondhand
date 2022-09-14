@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FetchContentInfo } from "../api/functions"
+// import { assignmentHandler } from "../functions/assignmentHandler";
+// import { ethers } from "ethers";
 
 /* Material ui */
 import Typography from "@mui/material/Typography";
@@ -11,13 +13,13 @@ import TextField from "@mui/material/TextField";
 import Slider from "@mui/material/Slider";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-import Hyousi from "../pic/hyousi.png";
 import Modal from "@mui/material/Modal";
-import { Collapse } from "@material-ui/core";
-import { Alert } from "@mui/material";
 import Subtitle from "../components/subtitle";
 import theme from "../theme/theme";
+import SwapCallsIcon from '@mui/icons-material/SwapCalls';
 import { ThemeProvider } from "@emotion/react";
+import { approved_manga } from "../functions/approved_mangaHandler";
+import { isapprove } from "../functions/isapprove_Handler";
 
 export default function Assignment() {
     const { bookId } = useParams()
@@ -27,6 +29,7 @@ export default function Assignment() {
     const [address, setAddress] = React.useState("");
     const inputRef = React.useRef(null);
     const [inputError, setInputError] = React.useState(false);
+    // const [tokenId, setTokenId] = React.useState("");
 
     useEffect(() => {
         FetchContentInfo(bookId)
@@ -40,6 +43,24 @@ export default function Assignment() {
         setValue(newValue);
 
     };
+
+    // const handleAssignmentButton = () => {
+    //     assignmentHandler(bookId, address, value)
+    //         .then((res) => {
+    //             console.log(`result from assignmentHandler`);
+    //             console.log(res);
+    //             if (res){
+    //                 console.log("parseint");
+    //                 console.log(res.data);
+    //                 console.log(parseInt(res.data, 16));
+    //                 console.log(ethers.utils.formatEther(res.data))
+    //                 setTokenId(parseInt(res.value["_hex"], 16));
+    //             }
+    //         })
+    // }
+
+    console.log("necessary info");
+    console.log([bookId, address, value]);
 
     const textChange = (e) => {
         setAddress(e.target.value);
@@ -63,15 +84,6 @@ export default function Assignment() {
         <ThemeProvider theme={theme}>
             <div style={{ textAlign: "left" }}>
                 <Subtitle text="譲渡する" />
-                {/* <Typography
-                variant="h3"
-                fontWeight="bold"
-                marginTop={5}
-                marginBottom={5}
-                marginLeft={10}
-            >
-                譲渡する
-            </Typography> */}
                 <Box sx={{ backgroundColor: "#edf2f7", padding: 5, height: "100vh" }}>
                     <Container
                         maxWidth="lg"
@@ -101,44 +113,69 @@ export default function Assignment() {
                                     </Typography>
                                 </Box>
                                 <Box sx={{ width: 700, padding: 5 }}>
-                                    <Typography variant="h5" marginBottom={5} fontWeight="bold">
+                                    <Typography variant="h5" marginBottom={5} fontWeight="bold" >
                                         相手のアドレス
                                     </Typography>
-                                    <TextField
-                                        inputProps={{ maxLength: 42, pattern: "0x[a-zA-Z0-9_]+" }}
-                                        inputRef={inputRef}
-                                        id="address"
-                                        fullWidth
-                                        label="Adress"
-                                        variant="outlined"
-                                        value={address}
-                                        helperText={inputRef?.current?.validationMessage}
-                                        onChange={(e) => textChange(e)}
-                                    />
+                                    <Container maxWidth="sm">
+                                        <TextField
+                                            inputProps={{ minLength: 42, maxLength: 42, minLength: 40, pattern: "0x[a-zA-Z0-9_]+" }}
+                                            inputRef={inputRef}
+                                            id="address_eth"
+                                            fullWidth
+                                            label="Adress"
+                                            variant="outlined"
+                                            value={address}
+                                            helperText={inputRef?.current?.validationMessage}
+                                            onChange={(e) => textChange(e)}
+                                        />
+                                    </Container>
                                     <Typography
                                         variant="h5"
                                         marginTop={5}
-                                        marginBottom={5}
                                         fontWeight="bold"
                                     >
                                         金額
                                     </Typography>
-                                    <Slider
-                                        aria-label="Small steps"
-                                        defaultValue={500}
-                                        step={50}
-                                        marks
-                                        min={200}
-                                        max={1000}
-                                        valueLabelDisplay="auto"
-                                        value={value}
-                                        onChange={handleChange}
-                                    />
+                                    <Stack
+                                        justifyContent="center"
+                                        alignItems="center"
+                                        spacing={1}
+                                        marginBottom={3}
+                                    >
+                                        <Typography
+                                            variant="h5"
+                                            fontWeight="bold"
+                                        >
+                                            {value} 円
+                                        </Typography>
+                                        <SwapCallsIcon />
+                                        <Typography
+                                            variant="h6"
+                                            fontWeight="bold"
+
+                                        >
+                                            {(value / 250000).toFixed(4)} Eth
+                                        </Typography>
+                                    </Stack>
+                                    <Container maxWidth="sm">
+                                        <Slider
+                                            aria-label="Small steps"
+                                            defaultValue={500}
+                                            step={50}
+                                            marks
+                                            min={200}
+                                            max={1000}
+                                            valueLabelDisplay="auto"
+                                            value={value}
+                                            onChange={handleChange}
+                                        />
+                                    </Container>
                                     <Stack direction="row" marginTop={5}>
                                         <div style={{ flexGrow: 1 }}></div>
-                                        <Button variant="contained" onClick={handleOpen}>
-                                            譲渡
-                                        </Button>
+
+                                        <Button variant="contained" onClick={() => isapprove(bookId)}>確認</Button>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <Button variant="contained" onClick={handleOpen}>譲渡</Button>
                                     </Stack>
                                 </Box>
                             </Stack>
@@ -169,17 +206,21 @@ export default function Assignment() {
                                 {title}の譲渡
                             </Typography>
                             <Typography variant="h6" component="h2" marginBottom={12}>
-                                {address}宛に{value}円で譲渡しますか？
+                                {address}宛に<br />
+                                金額 {value} 円<br />
+                                <SwapCallsIcon /><br />
+                                {(value / 250000).toFixed(4)} Eth<br />
+                                で譲渡しますか？
                             </Typography>
                             <Stack
                                 direction="row"
                                 justifyContent="space-around"
                                 alignItems="center"
                             >
-                                <Button variant="outlined" onClick={handleClose}>
+                                <Button variant="outlined" onClick={(handleClose)}>
                                     キャンセル
                                 </Button>
-                                <Button variant="contained">譲渡</Button>
+                                <Button variant="contained" onClick={() => approved_manga(address, bookId, value / 250000)}>譲渡</Button>
                             </Stack>
                         </Box>
                     </Modal>
@@ -188,3 +229,4 @@ export default function Assignment() {
         </ThemeProvider>
     );
 }
+

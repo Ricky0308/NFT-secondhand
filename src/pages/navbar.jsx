@@ -19,7 +19,7 @@ import Modal from "@mui/material/Modal";
 
 import contract from "../contracts/abi.json";
 import { ethers } from "ethers";
-
+import contractAddress from "../contracts/contractAddress"
 
 
 
@@ -37,11 +37,10 @@ function Nav() {
 
 
   const [currentAccount, setCurrentAccount] = useState(null);
-  let connected = false;
-  let installed = false;
-  const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
+  // let connected = false;
+  // let installed = false;
   const abi = contract.abi;
-  const value = 0;
+  // const value = 0;
   const checkWalletIsConnected = async () => {
     const { ethereum } = window;
 

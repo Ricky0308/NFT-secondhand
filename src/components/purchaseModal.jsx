@@ -6,20 +6,17 @@ import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import Slider from "@mui/material/Slider";
-import Hyousi from "../pic/hyousi.png";
 import TradeHandler from "../functions/tradeHandler";
+import { useContext } from "react";
+import { PurchaseInfoContext } from "../providers/PurchaseInfoProvider";
 
 export default function PurchaseModal({ open, handleClose }) {
-  const [Buy_price, setText_5] = React.useState("");//購入価格のテキスト保存
+  const { cover, title, tokenId, nftPrice } = useContext(PurchaseInfoContext);
 
   const [value, setValue] = React.useState(30);
-  const title = "タイトル";
-  const minFee = 200
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
-    setText_5(value);
   };
   return (
     <Modal
@@ -58,7 +55,7 @@ export default function PurchaseModal({ open, handleClose }) {
           >
             <Box sx={{ width: 300, textAlign: "center" }}>
               <img
-                src={Hyousi}
+                src={cover}
                 alt=" "
                 style={{ width: 150, marginTop: 20, marginBottom: 20 }}
               />
@@ -74,18 +71,14 @@ export default function PurchaseModal({ open, handleClose }) {
                 金額
               </Typography>
               <Box sx={{ textAlign: "center" }}>
-                <Slider
-                  style={{ width: 350 }}
-                  aria-label="Small steps"
-                  defaultValue={500}
-                  step={50}
-                  marks
-                  min={minFee}
-                  max={1000}
-                  valueLabelDisplay="auto"
-                  value={value}
-                  onChange={handleChange}
-                />
+                <Typography
+                  variant="h5"
+                  marginBottom={5}
+                  marginLeft={5}
+                  fontWeight="bold"
+                >
+                  {nftPrice} ETH
+                </Typography>
               </Box>
             </Box>
           </Stack>
@@ -99,7 +92,7 @@ export default function PurchaseModal({ open, handleClose }) {
             キャンセル
           </Button>
           {/* <Button variant="contained" onClick={()=>{console.log(Buy_price)}} className='cta-button mint-nft-button'>購入</Button> */}
-          <Button variant="contained" onClick={() => { TradeHandler(Buy_price) }} className='cta-button mint-nft-button'>購入</Button>
+          <Button variant="contained" onClick={() => { TradeHandler(tokenId, nftPrice) }} className='cta-button mint-nft-button'>購入</Button>
         </Stack>
       </Box>
     </Modal>

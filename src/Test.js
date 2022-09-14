@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 
 import contract from "./contracts/abi.json";
 import { ethers } from "ethers";
 import contractAddress from "./contracts/contractAddress";
-
 const abi = contract.abi;
 
 export default function Test() {

@@ -5,8 +5,6 @@ import contractAddress from '../contracts/contractAddress';
 const abi = contract.abi;
 
 export default function MintHandler(Num) {
-  const Selling_price = "";
-  const Buy_Token_id = "";
   const mintHandler = async () => {
 
 
@@ -33,7 +31,7 @@ export default function MintHandler(Num) {
 
     } catch (err) {
       return (window.alert("購入に失敗しました"));
-      console.log(err);
+      // console.log(err);
 
     }
 

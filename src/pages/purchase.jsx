@@ -7,16 +7,48 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 // import contract from '../contracts/abi.json';
 import PurchaseModal from "../components/purchaseModal";
-// import tradeHandler from "../functions/tradeHandler";
-
-// const contractAddress = "0xBF13b1b64C2F4E8a7767b15034160dbF172CAe6D";
-// const abi = contract.abi;
+import { useContext } from "react";
+import { PurchaseInfoContext } from "../providers/PurchaseInfoProvider";
+import { get_approved_manga } from "../functions/get_approved_manga";
+import { useEffect } from "react";
+import { FetchContentInfo } from "../api/functions";
+import { ethers } from "ethers";
 
 export default function Purchase() {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
-    const [address, setAddress] = React.useState("");
+    const { tokenId, setTokenId, setCover, cover, title, setTitle, setNftPrice } = useContext(PurchaseInfoContext);
 
+    useEffect(() => {
+        get_approved_manga(tokenId)
+            .then((res) => {
+                if (res) {
+                    const bookId = parseInt(res[0]["_hex"], 16);
+                    const price = ethers.utils.formatEther(res[1]["_hex"]);
+                    const buyer = parseInt(res[2]);
+                    console.log("price");
+                    console.log(price);
+                    setNftPrice(price.toString());
+                    if (buyer == "0xac4FD9a49828e353512b0bD3d01589576757394A") {
+                        console.log("found!!!!!!!!!!!!!!!!!!!!!!!!!")
+                    }
+                    return bookId;
+                } else {
+                    setCover("");
+                    setTitle("");
+                }
+            })
+            .then((bookId) => {
+                return FetchContentInfo(bookId)
+            })
+            .then((items) => {
+                setCover(items.cover);
+                setTitle(items.title);
+            })
+    }, [tokenId])
+
+    console.log("tokenId");
+    console.log(tokenId);
     return (
         <div style={{ textAlign: "left" }}>
             <Typography
@@ -47,13 +79,13 @@ export default function Purchase() {
                                     fullWidth
                                     label="Token ID"
                                     variant="outlined"
-                                    value={address}
-                                    onChange={(e) => setAddress(e.target.value)}
+                                    value={tokenId}
+                                    onChange={(e) => setTokenId(e.target.value)}
                                 />
                             </Box>
                             <Stack direction="row" marginTop={5}>
                                 <div style={{ flexGrow: 1 }}></div>
-                                <Button variant="contained" onClick={handleOpen}>
+                                <Button variant="contained" onClick={() => { handleOpen() }}>
                                     確認
                                 </Button>
                             </Stack>
@@ -62,7 +94,8 @@ export default function Purchase() {
                 </Container>
                 <PurchaseModal open={open} handleClose={() => {
                     setOpen(false);
-                }} />
+                }}
+                />
             </Box>
         </div>
     );
