@@ -11,7 +11,7 @@ import { BookCard } from "../components/cover";
 
 import MintHandler, { mint_nftHandler } from "../functions/mint_nefHandler"
 export default function Publuish() {
-    const [book_num, setNum] = React.useState('');
+    const [book_num, setNum] = React.useState('1');
     const handleChange = (event) => {
         setNum(event.target.value);
     };
@@ -42,7 +42,6 @@ export default function Publuish() {
                         <BookCard key={book_num} bookId={book_num}/>
                             <Box height={150} marginTop={10}>
                                 
-                            
                                 <Stack direction="row" alignItems="center" marginTop={0}>
                                 
                                     <Typography variant="h5" marginLeft={10} marginRight={7} fontWeight="bold">
