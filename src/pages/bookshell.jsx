@@ -21,8 +21,13 @@ export default function Bookshell() {
     useEffect(() => {
         get_nftHandler()
             .then((items) => {
-                setBookIdArray(items);
-                console.log(items);
+                if (typeof items === "undefined") {
+                    console.log("undefined!!");
+                }else{
+                    console.log(items);
+                    setBookIdArray(items);
+                }
+                
             })
     }, [])
 
