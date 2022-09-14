@@ -7,18 +7,18 @@ import { useNavigate } from "react-router-dom";
 import Test from "../Test";
 import { get_nftHandler } from "../functions/get_nftHandler"
 
-import contract from "../contracts/abi.json";
-import { ethers } from "ethers";
-const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
-const abi = contract.abi;
+// import contract from "../contracts/abi.json";
+// import { ethers } from "ethers";
+// const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
+// const abi = contract.abi;
 
 const AddressToContentsId = () => {
     return [1, 100]
 }
 
-export default function Bookshell(){
-    const [ bookIdArray, setBookIdArray ] = useState([]);
-    useEffect(()=>{
+export default function Bookshell() {
+    const [bookIdArray, setBookIdArray] = useState([]);
+    useEffect(() => {
         get_nftHandler()
             .then((items) => {
                 setBookIdArray(items);
@@ -26,29 +26,29 @@ export default function Bookshell(){
     }, [])
 
 
-    return(
+    return (
         <>
-        <Subtitle text = "本棚"/>
-        <Box sx={{ backgroundColor: "#edf2f7", padding: 5, height: "100vh" }}>
-            <Container
-                sx={{
-                    textAlign : "center"
-                }}
-            >
+            <Subtitle text="本棚" />
+            <Box sx={{ backgroundColor: "#edf2f7", padding: 5, height: "100vh" }}>
                 <Container
                     sx={{
-                        display : "flex",
-                        flexWrap : "wrap",
-                        // backgroundColor : "blue",
-                        boxShadow : "1 gray",
-                        borderRadius : "8px gray",
+                        textAlign: "center"
                     }}
-                    maxWidth="lg"
                 >
-                    {bookIdArray.map((id) => <BookCard key={id} bookId={id}/>)}
+                    <Container
+                        sx={{
+                            display: "flex",
+                            flexWrap: "wrap",
+                            // backgroundColor : "blue",
+                            boxShadow: "1 gray",
+                            borderRadius: "8px gray",
+                        }}
+                        maxWidth="lg"
+                    >
+                        {bookIdArray.map((id) => <BookCard key={id} bookId={id} />)}
+                    </Container>
                 </Container>
-            </Container>
-        </Box>
+            </Box>
         </>
     )
 }

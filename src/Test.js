@@ -3,8 +3,8 @@ import "./App.css";
 
 import contract from "./contracts/abi.json";
 import { ethers } from "ethers";
+import contractAddress from "./contracts/contractAddress";
 
-const contractAddress = "0xb9c35E386528047Aaa810F6E3d2521a202E7872F";
 const abi = contract.abi;
 
 export default function Test() {
@@ -74,7 +74,7 @@ export default function Test() {
         const _balance = await nftContract.get_deposit();
         console.log("_balance succeeded");
         console.log(_balance["_hex"]);
-        // console.log(parseInt(_balance["_hex"],16)); 
+        // console.log(parseInt(_balance["_hex"],16));
 
         setText_0(parseInt(_balance["_hex"], 16) / 1000000000000000000); //weiからEtherに変換
       } else {
