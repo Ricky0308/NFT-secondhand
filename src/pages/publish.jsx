@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import { BookCard } from "../components/cover";
 
 import MintHandler, { mint_nftHandler } from "../functions/mint_nefHandler"
 export default function Publuish() {
@@ -14,6 +15,8 @@ export default function Publuish() {
     const handleChange = (event) => {
         setNum(event.target.value);
     };
+
+
 
     return (
         <div style={{ textAlign: "left" }}>
@@ -36,7 +39,10 @@ export default function Publuish() {
                         sx={{ display: "inline" }}
                     >
                         <Box p={5}>
+                        <BookCard key={book_num} bookId={book_num}/>
                             <Box height={150} marginTop={10}>
+                                
+                            
                                 <Stack direction="row" alignItems="center" marginTop={0}>
                                 
                                     <Typography variant="h5" marginLeft={10} marginRight={7} fontWeight="bold">
